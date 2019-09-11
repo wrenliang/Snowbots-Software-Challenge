@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		6C6506442328AEC100F9D1FE /* Snowbots v2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Snowbots v2"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C6506472328AEC100F9D1FE /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6C65064E2328AFF700F9D1FE /* waypoints.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = waypoints.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				6C6506472328AEC100F9D1FE /* main.cpp */,
+				6C65064E2328AFF700F9D1FE /* waypoints.txt */,
 			);
 			path = "Snowbots v2";
 			sourceTree = "<group>";
