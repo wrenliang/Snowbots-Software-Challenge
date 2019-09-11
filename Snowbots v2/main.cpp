@@ -94,9 +94,9 @@ int main(int argc, char** argv) {
     inFile.open(WAYPOINTS_FILE_NAME);
     
     if(inFile.is_open()){
-        std::cout << "opened\n";
+        std::cout << "File successfully opened\n";
     } else {
-        std::cout << "error\n";
+        std::cout << "Error: could not open file\n";
     }
     
     double x, y;
@@ -189,7 +189,9 @@ double distanceBetweenPoints(Point p1, Point p2) {
     // TODO #1
     double xDistance = abs(p1.x - p2.x);
     double yDistance = abs(p1.y - p2.y);
-    double orthDistance = sqrt(pow(xDistance,2) + pow(yDistance,2)); //Pythagorean theorem
+    
+    //Orthogonal Distance calculated using Pythagorean theorem
+    double orthDistance = sqrt(pow(xDistance,2) + pow(yDistance,2));
     
     return orthDistance;
 }
@@ -206,7 +208,6 @@ double distanceBetweenPoints(Point p1, Point p2) {
  * @return the angle between between p1 and p2 in *radians*
  */
 
-//NEED TO FIX IF GREATER THAN PI/2 BECAUSE IT NEEDS TO KNOW TO TURN AROUND
 double angleBetweenPoints(Point p1, Point p2) {
     //TODO #2
     double angle;
@@ -259,12 +260,14 @@ MovementMsg computeNewMovement(StatusMsg status) {
         std::cout << "Waypoint reached! Popping off stack \n";
         waypoints.pop();
     } else {
+        
         //if the heading is close enough, we can drive quickly and make small turning adjustments
         if( abs(angleDiff) < THRESHOLD_ANGLE) {
             outputMsg.steering_angle = angleDiff;
             outputMsg.throttle = 1;
         } else {
-            //checks if turn angle is possible
+            
+            //checks if turn angle is within robot's capabilities
             if (abs(angleDiff) > MAX_TURN_ANGLE) {
                 std::cout << "Max turn reached, drive with turn throttle\n";
                 
@@ -285,6 +288,5 @@ MovementMsg computeNewMovement(StatusMsg status) {
         }
     }
     
-
     return outputMsg;
 }
